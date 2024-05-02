@@ -4,14 +4,15 @@ module for lockboxes
 """
 
 
-def solveRecursively(originalBox, openedBox, openedBoxes):
+def openRecursively(originalBox, openedBox, openedBoxes):
     """
     Recursive function to solve the boxes
     """
     notOpened = set(openedBox) - openedBoxes
     for key in notOpened:
-        openedBoxes.add(key)
-        solveRecursively(originalBox, originalBox[key], openedBoxes)
+        if key < len(originalBox):
+            openedBoxes.add(key)
+            openRecursively(originalBox, originalBox[key], openedBoxes)
 
 
 def canUnlockAll(boxes):
@@ -21,8 +22,9 @@ def canUnlockAll(boxes):
     openedBoxes = set([0])
     for key in boxes[0]:
         if key not in openedBoxes:
-            openedBoxes.add(key)
-            solveRecursively(boxes, boxes[key], openedBoxes)
+            if key < len(boxes):
+                openedBoxes.add(key)
+                openRecursively(boxes, boxes[key], openedBoxes)
     if len(openedBoxes) == len(boxes):
         return True
     return False
