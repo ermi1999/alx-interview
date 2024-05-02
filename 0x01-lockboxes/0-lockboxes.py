@@ -19,6 +19,8 @@ def canUnlockAll(boxes):
     """
     Method to determine if all boxes can be opened
     """
+    if len(boxes) < 2:
+        return True
     openedBoxes = set([0])
     for key in boxes[0]:
         if key not in openedBoxes:
