@@ -2,7 +2,6 @@
 """
 module for lockboxes
 """
-from sys import setrecursionlimit
 
 
 def openRecursively(originalBox, openedBox, openedBoxes):
@@ -20,7 +19,6 @@ def canUnlockAll(boxes):
     """
     Method to determine if all boxes can be opened
     """
-    setrecursionlimit(2000)
     if len(boxes) < 2:
         return True
     openedBoxes = set([0])
