@@ -2,12 +2,14 @@
 """
 module for lockboxes
 """
+from sys import setrecursionlimit
 
 
 def openRecursively(originalBox, openedBox, openedBoxes):
     """
     Recursive function to solve the boxes
     """
+    setrecursionlimit(2000)
     notOpened = set(openedBox) - openedBoxes
     for key in notOpened:
         if key < len(originalBox):
