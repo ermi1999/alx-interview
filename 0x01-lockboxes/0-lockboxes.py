@@ -9,7 +9,6 @@ def openRecursively(originalBox, openedBox, openedBoxes):
     """
     Recursive function to solve the boxes
     """
-    setrecursionlimit(2000)
     notOpened = set(openedBox) - openedBoxes
     for key in notOpened:
         if key < len(originalBox):
@@ -21,6 +20,7 @@ def canUnlockAll(boxes):
     """
     Method to determine if all boxes can be opened
     """
+    setrecursionlimit(2000)
     if len(boxes) < 2:
         return True
     openedBoxes = set([0])
