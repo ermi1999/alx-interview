@@ -1,38 +1,27 @@
 #!/usr/bin/python3
 """
-minimum operations.
+module for finding the number of operations
+that will took to paste in n number of hashes.
 """
+import math
 
 
 def minOperations(n):
     """
-    minimum operations.
+    this function tries to find
+    the minimum operations that will
+    took to paste n number of hashes using factorials.
     """
-    if n == 1:
-        return 0
-    if n == 2:
-        return 1
-    h = 1
-    numberOfOperations = 0
-    clipboard = 0
-    while h < n:
-        if h + h < n:
-            if clipboard > 0:
-                if h + h > clipboard + h + 1:
-                    print("copy and paste")
-                    clipboard = h
-                    h += clipboard
-                    numberOfOperations += 2
-                    continue
-            else:
-                print("copy and paste")
-                clipboard = h
-                h += clipboard
-                numberOfOperations += 2
-                continue
-        print("paste")
-        h += clipboard
-        numberOfOperations += 1
-    if h == n:
-        return numberOfOperations
-    return 0
+    factors = []
+    while n % 2 == 0:
+        factors.append(2),
+        n = n // 2
+
+    for i in range(3, int(math.sqrt(n))+1, 2):
+        while n % i == 0:
+            factors.append(i),
+            n = n // i
+    if n > 2:
+        factors.append(n)
+
+    return sum(factors)
