@@ -29,7 +29,7 @@ if __name__ == "__main__":
             file_size += int(splited[-1])
 
             i += 1
-            if i == 9:
+            if i == 10:
                 print(f'File size: {file_size}')
                 for key, value in status_codes.items():
                     if value == 0:
