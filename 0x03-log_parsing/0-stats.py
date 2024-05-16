@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """module for parsing log."""
 import sys
-import re
 
 if __name__ == "__main__":
     file_size = 0
@@ -15,8 +14,6 @@ if __name__ == "__main__":
             "405": 0,
             "500": 0
     }
-    regex = re.compile(
-    r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (.{3}) (\d+)')  # nopep8
     i = 0
     try:
         for line in sys.stdin:
