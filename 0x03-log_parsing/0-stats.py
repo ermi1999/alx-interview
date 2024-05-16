@@ -32,9 +32,13 @@ if __name__ == "__main__":
             if i == 9:
                 print(f'File size: {file_size}')
                 for key, value in status_codes.items():
+                    if value == 0:
+                        continue
                     print(f'{key}: {value}')
                 i = 0
     except KeyboardInterrupt:
         print(f'File size: {file_size}')
         for key, value in status_codes.items():
+            if value == 0:
+                continue
             print(f'{key}: {value}')
