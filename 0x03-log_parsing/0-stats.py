@@ -23,7 +23,8 @@ if __name__ == "__main__":
             match = regex.fullmatch(line)
             if match:
                 i += 1
-                splited = line[: -1].split(" ")
+                splited = line.split(" ")
+                print(splited)
                 if len(splited) != 9:
                     continue
                 if splited[-2] not in status_codes.keys():
