@@ -24,10 +24,10 @@ if __name__ == "__main__":
                 continue
             if not splited[-1].isdigit():
                 continue
-            # if len(splited[0].split('.')) != 4:
-            #     continue
-            # if splited[1] != '-':
-            #     continue
+            if len(splited[0].split('.')) != 4:
+                continue
+            if splited[1] != '-':
+                continue
             status_codes[splited[-2]] += 1
             file_size += int(splited[-1])
             i += 1
