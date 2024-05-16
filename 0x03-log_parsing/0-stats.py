@@ -26,16 +26,15 @@ try:
             continue
         status_codes[splited[-2]] += 1
         file_size += int(splited[-1])
-
         i += 1
-        if i == 10:
+
+        if i % 10 == 0:
             print(f'File size: {file_size}')
             for key, value in status_codes.items():
                 if value == 0:
                     continue
                 print(f'{key}: {value}')
-            i = 0
-except KeyboardInterrupt:
+finally:
     print(f'File size: {file_size}')
     for key, value in status_codes.items():
         if value == 0:
