@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module for parsing log."""
 import sys
+import re
 
 if __name__ == "__main__":
     file_size = 0
@@ -14,6 +15,8 @@ if __name__ == "__main__":
             "405": 0,
             "500": 0
     }
+    regex = re.compile(
+    r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d+\] "GET /projects/260 HTTP/1.1" (.{3}) (\d+)')  # nopep8
     i = 0
     try:
         for line in sys.stdin:
@@ -31,7 +34,7 @@ if __name__ == "__main__":
             if len(splited[2].split('-')) != 3:
                 continue
             if (f'{splited[4]} {splited[5]} {splited[6]}'
-                != '"GET /projects/260 HTTP/1.1"'):
+               != '"GET /projects/260 HTTP/1.1"'):
                 continue
             status_codes[splited[-2]] += 1
             file_size += int(splited[-1])
