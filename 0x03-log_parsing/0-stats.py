@@ -21,10 +21,13 @@ if __name__ == "__main__":
             if len(splited) != 9:
                 continue
             if splited[-2] not in status_codes.keys():
-                print(f"status code not found: {splited[-2]}")
                 continue
             if not splited[-1].isdigit():
                 continue
+            # if len(splited[0].split('.')) != 4:
+            #     continue
+            # if splited[1] != '-':
+            #     continue
             status_codes[splited[-2]] += 1
             file_size += int(splited[-1])
             i += 1
