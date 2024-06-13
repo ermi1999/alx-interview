@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """rotate 2d matrix
 """
-from typing import List
 
 
-def rotate_2d_matrix(matrix: List[List[int]]) -> None:
+def rotate_2d_matrix(matrix: list[list[int]]) -> None:
     """rotate 2d matrix
     """
     left, r = 0, len(matrix) - 1
