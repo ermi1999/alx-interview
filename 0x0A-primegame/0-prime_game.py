@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Prime game"""
-from typing import List
 
 
-def findPrime(n: int) -> List[int]:
+def findPrime(n):
     """finds all prime numbers for n"""
     prime = [True for i in range(n + 1)]
     p = 2
